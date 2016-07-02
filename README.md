@@ -1,3 +1,7 @@
-# static-boilerplate
+# twitchStreamers 
 
-A boilerplate for building static websites including Normalize, Sass, Autoprefixer, Browser-Sync, Gulp ...
+This app displays Streamers in Twitch.
+
+There is the option to search for streamers and the
+output shows the information you need.
+
