@@ -1,13 +1,13 @@
 {
-  "name": "static-boilerplate",
+  "name": "twitchStreamers",
   "version": "1.0.0",
-  "description": "A boilerplate for the creation of static websites",
+  "description": "App that shows Streamers on Twitch",
   "main": "gulpfile.js",
   "author": "Ivan Georgiev",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ivangeorgiew/static-boilerplate.git"
+    "url": "https://github.com/ivangeorgiew/twtichStreamers.git"
   },
   "devDependencies": {
     "browser-sync": "^2.13.0",
