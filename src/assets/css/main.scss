@@ -1,5 +1,114 @@
 @import 'normalize';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+$orange: #FF851B;
+$red: #FF4136;
+$navy: #001f3f;
+$olive: #3D9970;
 
-body{
-  background-color: yellow;
+*{
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+html, body{
+  background-color: $navy;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+  
+select, input, button{
+  border-width: 0px;
+}
+
+.main--container{
+  display: table;
+  margin: 50px auto;
+  background-color: $orange;
+  padding: 10px 20px;
+}
+
+.h1--main{
+  color: black;
+  font-size: 45px;
+  margin-bottom: 45px;
+}
+
+.search--field{
+  width: 220px;
+  padding: 8px;
+  text-align: center;
+  border: none;
+  font-size: 20px;
+}
+
+.search--button{
+  width: 80px;
+  margin-left: 20px;
+  padding: 8px;
+  color: white;
+  font-size: 20px;
+  background-color: $navy;
+}
+  
+.ul--streamers{
+  list-style-type: none;
+  display: table;
+  padding: 0px;
+  margin: 30px auto;
+}
+  
+.li--streamers{
+  position: relative;
+  background-color: $olive;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  z-index: 5;
+}
+ 
+a.a--streamers, a.a--streamers:hover, a.a--streamers:focus, a.a--streamers:active{
+  display: inline-block;
+  color: $navy;
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border: 2px solid $navy;
+  padding: 0px 4px;
+}
+  
+.div--user{
+  padding-top: 20px;
+}
+  
+.stream--info{
+  text-align: right;
+  padding: 15px 10px 5px 10px;
+  background-color: $red;
+  margin: -20px 10px 10px 10px;
+}
+  
+.span--info{
+  color: lightgray;
+}
+
+@media(max-width: 500px){
+  .main--container{
+    margin: 0px;
+    padding: 2px;
+    display: block;
+    border-radius: 0px;
+  }
+  .search--field{
+    display: block;
+    margin: 15px auto;
+  }
+  .search--button{
+    display: block;
+    margin: auto;
+    width: 220px;
+  }
 }

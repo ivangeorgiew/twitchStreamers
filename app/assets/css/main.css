@@ -3,6 +3,7 @@
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 html {
   font-family: sans-serif;
   /* 1 */
@@ -364,5 +365,93 @@ textarea {
   font: inherit;
   /* 2 */ }
 
-body {
-  background-color: yellow; }
+* {
+  border-radius: 5px;
+  box-sizing: border-box; }
+
+html, body {
+  background-color: #001f3f;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  text-align: center; }
+
+select, input, button {
+  border-width: 0px; }
+
+.main--container {
+  display: table;
+  margin: 50px auto;
+  background-color: #FF851B;
+  padding: 10px 20px; }
+
+.h1--main {
+  color: black;
+  font-size: 45px;
+  margin-bottom: 45px; }
+
+.search--field {
+  width: 220px;
+  padding: 8px;
+  text-align: center;
+  border: none;
+  font-size: 20px; }
+
+.search--button {
+  width: 80px;
+  margin-left: 20px;
+  padding: 8px;
+  color: white;
+  font-size: 20px;
+  background-color: #001f3f; }
+
+.ul--streamers {
+  list-style-type: none;
+  display: table;
+  padding: 0px;
+  margin: 30px auto; }
+
+.li--streamers {
+  position: relative;
+  background-color: #3D9970;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  z-index: 5; }
+
+a.a--streamers, a.a--streamers:hover, a.a--streamers:focus, a.a--streamers:active {
+  display: inline-block;
+  color: #001f3f;
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border: 2px solid #001f3f;
+  padding: 0px 4px; }
+
+.div--user {
+  padding-top: 20px; }
+
+.stream--info {
+  text-align: right;
+  padding: 15px 10px 5px 10px;
+  background-color: #FF4136;
+  margin: -20px 10px 10px 10px; }
+
+.span--info {
+  color: lightgray; }
+
+@media (max-width: 500px) {
+  .main--container {
+    margin: 0px;
+    padding: 2px;
+    display: block;
+    border-radius: 0px; }
+  .search--field {
+    display: block;
+    margin: 15px auto; }
+  .search--button {
+    display: block;
+    margin: auto;
+    width: 220px; } }
