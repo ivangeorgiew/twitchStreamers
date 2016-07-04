@@ -27,11 +27,8 @@ $(document).ready(function(){
           $('.ul--streamers').append(addData);
         }
         else{
-          addData += '<span> is online !!!</span><button class="show--info"><i class="fa fa-2x fa-angle-down" aria-hidden="true"></i></button></li><div class="stream--info">Game:<span class="span--info"> '+data.stream.game+'</span><br>Viewers: <span class="span--info">'+data.stream.viewers+'</span></div>';  
+          addData += '<span> is online !!!</span></li><div class="stream--info">Game:<span class="span--info"> '+data.stream.game+'</span><br>Viewers: <span class="span--info">'+data.stream.viewers+'</span>';  
           $('.ul--streamers').prepend(addData);
-          $('.show--info').on('click', function(){
-            $('.stream--info').toggle(); 
-          });
         }
       });
     });
