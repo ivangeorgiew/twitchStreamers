@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var initStreamers = [
+  var streamers = [
     "freecodecamp",
     "beyondthesummit",
     "OgamingSC2",
@@ -46,22 +46,25 @@ $(document).ready(function(){
 
   };
 
+  var isValid = function(str){
+    return /^w+$/.test(str);
+  }
 
   var addStreamer = function(){
     var search = $('.search--field').val();
-    
-    if(initStreamers.indexOf(search) === -1 && search !== '') {
-      initStreamers.push(search);
+
+    if(streamers.indexOf(search) === -1 && isValid(search) === true){
+      streamers.push(search);
       showStreamer(search);
       $('.div--user').empty().append('Successfully added');
     }
 
     else{
-      $('.div--user').empty().append('Already added');
+      $('.div--user').empty().append('Already added or incorrect input');
     }
   }
 
-  initStreamers.forEach(function(val){
+  streamers.forEach(function(val){
     showStreamer(val);
   });
 
