@@ -1,53 +1,69 @@
 $(document).ready(function(){
-  var searchText = $('.search--field').val();
-
-  var streamers = [
+  var initStreamers = [
     "freecodecamp",
     "beyondthesummit",
     "OgamingSC2",
     "noobs2ninjas",
     "nl_kripp",
     "brunofin",
-    "comster404"];
+    "comster404"
+  ];
 
-  var showStreamers = function(){
-    streamers.forEach(function(user){
-      var url = 'https://api.twitch.tv/kraken/streams/'+user+'?callback=?';
-      var addData = '<li class="'+user+' li--streamers"><a target="_blank" href="http://www.twitch.tv/'+user+'" class="a--streamers">'+user+'</a>';
-      if($('.'+user).length > 0){
-        return;
+  var showStreamer = function(user){
+
+    var url = 'https://api.twitch.tv/kraken/streams/'+user+'?callback=?',
+        anchorLink = 'http://www.twitch.tv/'+user,
+        isOnline= '',
+        uClass = "."+user;
+
+    $('.li--hidden').clone().appendTo($('.ul--streamers')).attr('class', user+' li--streamers');
+
+    $.getJSON(url, function(data){
+      if(data.stream === undefined)
+        isOnline = '<span> is removed or non-existant</span>'
+      
+      else if(data.stream === null)
+        isOnline = '<span> is offline</span>';
+      
+      else {
+        isOnline = '<span> is online !!!</span>';
+        
+        $('.div--hidden').clone().insertAfter($(uClass)).attr('class', 'stream--info div--hidden');
+
+        $(uClass).next().find('.span--info').first().text(data.stream.game);
+        $(uClass).next().find('.span--info').last().text(data.stream.viewers);
+
+        $(uClass).append('<i class="fa fa-2x fa-angle-down" aria-hidden="true"></i>');
+        $(uClass).find('.fa').on('click', function(){
+          $(uClass).next().toggle();
+        });
+
       }
-      $.getJSON(url, function(data){
-        if(data.stream === undefined){
-          addData += '<span> is removed or non-existant</span></li>';
-          $('.ul--streamers').append(addData); 
-        }
-        else if(data.stream === null){
-          addData += '<span> is offline</span></li>';
-          $('.ul--streamers').append(addData);
-        }
-        else{
-          addData += '<span> is online !!!</span></li><div class="stream--info">Game:<span class="span--info"> '+data.stream.game+'</span><br>Viewers: <span class="span--info">'+data.stream.viewers+'</span>';  
-          $('.ul--streamers').prepend(addData);
-        }
-      });
+
+      $(uClass).append('<br>' + isOnline);
+      $(uClass).find('.a--streamers').attr('href', anchorLink).html(user);
     });
+
   };
+
 
   var addStreamer = function(){
     var search = $('.search--field').val();
     
-    if(streamers.indexOf(search) === -1) {
-      streamers.push(search);
-      showStreamers();
+    if(initStreamers.indexOf(search) === -1 && search !== '') {
+      initStreamers.push(search);
+      showStreamer(search);
       $('.div--user').empty().append('Successfully added');
     }
+
     else{
       $('.div--user').empty().append('Already added');
     }
   }
 
-  showStreamers();
+  initStreamers.forEach(function(val){
+    showStreamer(val);
+  });
+
   $('.search--button').on('click', addStreamer);
-  
 });

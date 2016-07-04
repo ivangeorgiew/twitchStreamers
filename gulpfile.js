@@ -8,9 +8,7 @@ var gulp = require('gulp'),
     pump = require('pump');
 
 gulp.task('norm', function() {
-  return gulp.src('node_modules/node-normalize-scss/_normalize.scss')
-    .pipe(gulp.dest('src/assets/css'));
-});
+  return gulp.src('node_modules/node-normalize-scss/_normalize.scss') .pipe(gulp.dest('src/assets/css')); });
 
 gulp.task('css', function (cb) {
   pump([
