@@ -16,9 +16,11 @@ $(document).ready(function(){
         isOnline= '',
         uClass = "."+user;
 
-    $('.li--hidden').clone().appendTo($('.ul--streamers')).attr('class', user+' li--streamers');
 
     $.getJSON(url, function(data){
+
+      $('.li--hidden').clone().appendTo($('.ul--streamers')).attr('class', user+' li--streamers');
+
       if(data.stream === undefined)
         isOnline = '<span> is removed or non-existant</span>'
       
@@ -47,12 +49,12 @@ $(document).ready(function(){
   };
 
   var isValid = function(str){
-    return /^w+$/.test(str);
+    return /^\w+$/.test(str);
   }
 
   var addStreamer = function(){
     var search = $('.search--field').val();
-
+    
     if(streamers.indexOf(search) === -1 && isValid(search) === true){
       streamers.push(search);
       showStreamer(search);
