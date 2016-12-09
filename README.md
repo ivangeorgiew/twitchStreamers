@@ -5,6 +5,8 @@ This app displays Streamers in Twitch.
 There is the option to search for streamers and the
 output shows the information you need.
 
+View the app live at https://ivangeorgiew.github.io/twitchStreamers/
+
 ### Feedback
 
 **Feedback** is much **appreciated** since there are still some possibilities for a mistake.
